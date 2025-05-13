@@ -1,69 +1,69 @@
 const searchRoutes = {
-    'female watches': 'female.html',
-    'Female watches': 'female.html',
-    'couple watches': 'couple.html',
-    'Couple watches': 'couple.html',
-    'luxury watches': 'luxury_watches.html',
-    'Luxury watches': 'luxury_watches.html',
-    'Premium watches': 'luxury_watches.html',
-    'premium watches': 'luxury_watches.html',
-    'storage boxes': 'storage_boxes.html',
-    'Storage boxes': 'storage_boxes.html',
-    'rolex': 'rolex.html',
-    'Rolex': 'rolex.html',
-    'hublot': 'hublot.html',
-    'Hublot': 'hublot.html',
-    'patek philippe': 'patek_philippe.html',
-    'Patek philippe': 'patek_philippe.html',
-    'skmei': 'skmei.html',
-    'Skmei': 'skmei.html',
-    'reward': 'reward.html',
-    'Reward': 'reward.html',
-    'tissot': 'tissot.html',
-    'Tissot': 'tissot.html',
-    'sveston': 'sveston.html',
-    'Sveston': 'sveston.html',
-    'universe point': 'universepoint.html',
-    'Universe point': 'universepoint.html',
-    'curren': 'curren.html',
-    'Curren': 'curren.html',
-    'arabic black watch': 'arabic_black.html',
-    'Arabic black watch': 'arabic_black.html',
-    'aura watch': 'arabic_black.html',
-    'Aura watch': 'arabic_black.html',
-    'fitron': 'fitron.html',
-    'Fitron': 'fitron.html',
-    'audemars piguet': 'audemarspiguet.html',
-    'Audemars piguet': 'audemarspiguet.html',
-    'xtl': 'X-TL.ok.html',
-    'x-tl.ok': 'X-TL.ok.html',
-    'matturi': 'maturi.html',
-    'Matturi': 'maturi.html',
-    'benyar': 'benyar.html',
-    'Benyar': 'benyar.html',
-    'bestwin': 'bestwin.html',
-    'Bestwin': 'bestwin.html',
-    'success way': 'successway.html',
-    'seastar': 'seastar.html.html',
-    'Seastar': 'seastar.html.html',
-    
-  };
+  'female watches': 'female.html',
+  'Female watches': 'female.html',
+  'couple watches': 'couple.html',
+  'Couple watches': 'couple.html',
+  'luxury watches': 'luxury_watches.html',
+  'Luxury watches': 'luxury_watches.html',
+  'Premium watches': 'luxury_watches.html',
+  'premium watches': 'luxury_watches.html',
+  'storage boxes': 'storage_boxes.html',
+  'Storage boxes': 'storage_boxes.html',
+  'rolex': 'rolex.html',
+  'Rolex': 'rolex.html',
+  'hublot': 'hublot.html',
+  'Hublot': 'hublot.html',
+  'patek philippe': 'patek_philippe.html',
+  'Patek philippe': 'patek_philippe.html',
+  'skmei': 'skmei.html',
+  'Skmei': 'skmei.html',
+  'reward': 'reward.html',
+  'Reward': 'reward.html',
+  'tissot': 'tissot.html',
+  'Tissot': 'tissot.html',
+  'sveston': 'sveston.html',
+  'Sveston': 'sveston.html',
+  'universe point': 'universepoint.html',
+  'Universe point': 'universepoint.html',
+  'curren': 'curren.html',
+  'Curren': 'curren.html',
+  'arabic black watch': 'arabic_black.html',
+  'Arabic black watch': 'arabic_black.html',
+  'aura watch': 'arabic_black.html',
+  'Aura watch': 'arabic_black.html',
+  'fitron': 'fitron.html',
+  'Fitron': 'fitron.html',
+  'audemars piguet': 'audemarspiguet.html',
+  'Audemars piguet': 'audemarspiguet.html',
+  'xtl': 'X-TL.ok.html',
+  'x-tl.ok': 'X-TL.ok.html',
+  'matturi': 'maturi.html',
+  'Matturi': 'maturi.html',
+  'benyar': 'benyar.html',
+  'Benyar': 'benyar.html',
+  'bestwin': 'bestwin.html',
+  'Bestwin': 'bestwin.html',
+  'success way': 'successway.html',
+  'seastar': 'seastar.html.html',
+  'Seastar': 'seastar.html.html',
+};
 
-  document.getElementById('searchForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent form from reloading the page
-    const input = document.getElementById('searchInput').value.toLowerCase().trim();
+document.getElementById('searchForm').addEventListener('submit', function (e) {
+  e.preventDefault(); // Prevent form from reloading the page
+  const input = document.getElementById('searchInput').value.toLowerCase().trim();
 
-    // Search match
-    for (let key in searchRoutes) {
-      if (input.includes(key)) {
-        window.location.href = searchRoutes[key];
-        return;
-      }
+  // Search match
+  for (let key in searchRoutes) {
+    if (input.includes(key)) {
+      window.location.href = searchRoutes[key];
+      return;
     }
+  }
 
-    // If no match
-    alert('No matching page found. Try searching for a brand or category name.');
-  });
+  // If no match
+  alert('No matching page found. Try searching for a brand or category name.');
+});
+
 
   // _________________________________________________________________________________________________________
 

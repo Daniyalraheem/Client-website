@@ -1,63 +1,111 @@
-
+/* Main Sticky Navbar */
 .sticky-navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-/* Add spacing to body so content doesn't hide under sticky bar */
+/* Add spacing to body to prevent overlap */
 body {
-  padding-top: 180px; /* adjust as needed for your total navbar height */
+  padding-top: 180px; /* Adjust as needed for your total navbar height */
 }
 
 /* Top Red Bar */
-
 .top-bar {
-    background-color: grey;
-    color: white;
-    font-size: 12px;
-    padding: 2px 200px;
+  background-color: grey;
+  color: white;
+  font-size: 12px;
+  padding: 2px 200px;
+  text-align: center; /* Center content for smaller screens */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+/* Social Icons Styling */
+.social-icons {
+  color: white;
+  margin-left: 10px;
+  font-size: 18px;
+  display: flex;
+  justify-content: flex-end; /* Align social icons to the right */
+}
+
+/* Responsive Adjustments for screens under 768px */
+@media screen and (max-width: 768px) {
+  .top-bar {
+    padding: 2px 20px; /* Reduce padding on smaller screens */
+    flex-direction: column; /* Stack elements vertically */
+    text-align: center; /* Ensure the content is centered */
   }
 
   .social-icons {
-    color: white;
-    margin-left: 10px;
-    font-size: 18px;
+    margin-top: 10px; /* Add space between the text and icons */
+    justify-content: center; /* Center the icons on smaller screens */
+    font-size: 16px; /* Slightly reduce font size for smaller screens */
+  }
+}
+
+/* Further Responsive Adjustments for screens under 480px */
+@media screen and (max-width: 480px) {
+  .top-bar {
+    font-size: 10px; /* Reduce font size even more on small screens */
+    padding: 2px 10px; /* Reduce padding further */
   }
 
-  /* Middle Navbar */
-
-  .navbar-main {
-    background-color: #1c1c1c;
-    padding: 5px 200px;
+  .social-icons {
+    font-size: 14px; /* Further reduce social icon size */
   }
+}
 
-  .brandlogo{
-height: 100px;
-width: 130px;
-border-radius: 20px;
-  }
+
+/* Middle Navbar */
+.navbar-main {
+  background-color: #1c1c1c;
+  padding: 5px 200px;
+}
+
+.brandlogo {
+  height: 100px;
+  width: 130px;
+  border-radius: 20px;
+}
 
 /* Bottom Navbar */
-
 .navbar-bottom {
   background-color: #0e0e0e;
   padding: 10px 0;
   height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
+.search-container img {
+  max-width: 100%; /* Make the logo image responsive */
+  height: auto; /* Maintain aspect ratio */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.logo {
+  height: 50px;
+  max-width: 100%; /* Ensure logo is responsive */
+}
+
+/* Navbar Links */
 .navbar-bottom a {
   color: white;
   font-weight: 600;
   text-transform: uppercase;
-  padding: 15px;
+  padding: 10px;
   display: inline-block;
   text-decoration: none;
   position: relative;
   margin-top: -13px;
+  font-size: 14px; /* Adjust font size for responsiveness */
 }
-  
+
 /* Dropdown container */
 .dropdown {
   position: relative;
@@ -73,8 +121,8 @@ border-radius: 20px;
   z-index: 1;
   top: 100%;
   left: 0;
-  max-height: 200px;         /* Limit the dropdown height */
-  overflow-y: auto;          /* Enable vertical scroll */
+  max-height: 200px;
+  overflow-y: auto;
   border: 1px solid #444;
   box-shadow: 0px 4px 8px rgba(0,0,0,0.4);
 }
@@ -106,9 +154,40 @@ border-radius: 20px;
   border-radius: 4px;
 }
 
-  /* Center: Search */
+/* Responsive Adjustments for screens under 768px */
+@media screen and (max-width: 768px) {
+  .navbar-bottom {
+    flex-direction: column; /* Stack navbar items vertically */
+    align-items: center;
+    padding: 10px;
+    height: auto;
+  }
 
-  .search-container {
+  .navbar-bottom a {
+    padding: 10px 15px; /* Adjust padding for smaller screens */
+    font-size: 12px; /* Reduce font size */
+  }
+
+  .search-container img {
+    height: 40px; /* Reduce the logo size for mobile screens */
+  }
+}
+
+/* Further Responsive Adjustments for screens under 480px */
+@media screen and (max-width: 480px) {
+  .navbar-bottom a {
+    padding: 8px 10px; /* Reduce padding for very small screens */
+    font-size: 10px; /* Reduce font size even more */
+  }
+
+  .search-container img {
+    height: 30px; /* Further reduce logo size */
+  }
+}
+
+
+/* Center: Search */
+.search-container {
     width: 500px;
     background-color: #3a3a3a;
     border-radius: 30px;
@@ -116,88 +195,171 @@ border-radius: 20px;
     display: flex;
     align-items: center;
     margin-left: 100px;
-  }
-  .search-container input {
+    flex-wrap: wrap;  /* Ensure it wraps on smaller screens */
+    justify-content: space-between;  /* For spacing between the logo and input field */
+}
+
+.search-container input {
     background-color: transparent;
     border: none;
     color: white;
-    width: 100%;
+    width: 100%; /* Ensure it takes up full width of container */
     outline: none;
-  }
-  .search-container input::placeholder {
+}
+
+.search-container input::placeholder {
     color: #bbb;
-  }
-  .search-icon {
+}
+
+.search-icon {
     color: white;
     font-size: 16px;
-  }
+}
 
-  .search-bar::placeholder {
-    color: white;
-  }
-  .icon-btn {
-    color: white;
-    text-decoration: none;
-    margin-left: 15px;
-  }
-  .loginbtn{
-    margin-right: 5px;
-  }
-  .cartbtn{
-    margin-right: 20px;
-  }
-  .cart-icon {
-    border: 1px solid white;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  .logo {
-    height: 50px;
-  }
+.search-bar::placeholder {
+  color: white;
+}
 
-  .divright{
-    font-size: 15px;
-  }
+.icon-btn {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+}
 
-  /* Carousel Container */
-  
-  .carousel-container {
-        width: 100%;               
-        max-width: 1000px;
-        height: 600px;            
-        margin: 30px auto;        
-        overflow: hidden;
-        border-radius: 25px;
-        border-bottom-left-radius: 25px;
-        border-bottom-right-radius: 25px;   
-           
-      }
-  
-    
-      .carousel-inner,
-      .carousel-item,
-      .carousel-item img {
-        height: 100%;
-      }
-  
-      .carousel-item img {
-        object-fit: cover;
-        width: 100%;
-        border-bottom-left-radius: 25px;
-        border-bottom-right-radius: 25px; 
-      }
+.loginbtn {
+  margin-right: 5px;
+}
 
-          
-/* SHOP BY BRAND*/
+.cartbtn {
+  margin-right: 20px;
+}
 
-      .shopbybrand{
-        text-align: center;
-        font-size: 30px;
-      }
+.cart-icon {
+  border: 1px solid white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
 
-    .shopbybrand{
-      font-size: 10px;
+.logo {
+  height: 50px;
+}
+
+.divright {
+  font-size: 15px;
+}
+
+/* Carousel Container */
+.carousel-container {
+  width: 100%;
+  max-width: 1000px;
+  height: 600px;
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.carousel-inner,
+.carousel-item,
+.carousel-item img {
+  height: 100%;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  width: 100%;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    .search-container {
+        width: 90%; /* Make the search container take up most of the screen width */
+        margin-left: 0; /* Remove margin to fit better */
+        padding: 10px; /* Increase padding for touch devices */
     }
+
+    .search-container input {
+        font-size: 14px; /* Smaller font size on mobile */
+    }
+
+    .search-icon {
+        font-size: 18px; /* Increase search icon size on smaller screens */
+    }
+
+    .logo {
+        height: 40px; /* Resize the logo for smaller screens */
+    }
+}
+
+/* Further adjustments for smaller screens */
+@media screen and (max-width: 480px) {
+    .search-container {
+        width: 100%; /* Full width for the search bar on very small screens */
+        padding: 8px; /* Adjust padding for mobile touch */
+    }
+
+    .search-container input {
+        font-size: 16px; /* Larger text for easy typing */
+    }
+
+    .search-icon {
+        font-size: 20px; /* Larger icon for mobile screens */
+    }
+
+    .logo {
+        height: 35px; /* Further reduce the logo size for very small screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-main {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 15px;
+  }
+
+  .divright {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+
+  .image-grid,
+  .circle-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .about-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carousel-container img {
+    max-height: 300px;
+  }
+
+  .search-container input {
+    font-size: 14px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+  }
+}
+
+/* Shop By Brand */
+.shopbybrand {
+  text-align: center;
+  font-size: 30px;
+}
+
+.shopbybrand {
+  font-size: 10px;
+}
 
 .image-grid {
   display: grid;
@@ -245,8 +407,7 @@ border-radius: 20px;
   padding: 0 10px;
 }
 
-/* SHOP BY CATEGORY */
-
+/* Shop By Category */
 .circle-gallery {
   display: flex;
   justify-content: center;
@@ -294,21 +455,40 @@ border-radius: 20px;
   color: #333;
 }
 
-.commitment{
+.commitment {
   font-size: 20px;
   text-align: center;
   margin-left: 100px;
   margin-right: 100px;
 }
 
-.imageofbrand{
-  margin-left: 610px;
-  height: 210px;
+.imageofbrand {
+  margin-left: 610px; /* Center the image on large screens */
+  height: 210px; /* Set initial height */
   border-radius: 20px;
+  max-width: 100%; /* Ensure the image doesn't overflow the container */
+  height: auto; /* Maintain aspect ratio */
 }
 
-/* ABOUT US */
+/* Responsive Adjustments for Screens Under 768px */
+@media screen and (max-width: 768px) {
+  .imageofbrand {
+    margin-left: auto; /* Center the image */
+    margin-right: auto;
+    height: 150px; /* Resize the logo image */
+    max-width: 80%; /* Allow image to scale on smaller screens */
+  }
+}
 
+/* Further Adjustments for Small Screens (Under 480px) */
+@media screen and (max-width: 480px) {
+  .imageofbrand {
+    height: 120px; /* Further reduce the logo height */
+    max-width: 70%; /* Make the logo even smaller on very small screens */
+  }
+}
+
+/* About Us */
 .about-section {
   background-color: #333;
   color: white;
@@ -319,7 +499,8 @@ border-radius: 20px;
   flex-wrap: wrap;
 }
 
-.about-left, .about-right {
+.about-left,
+.about-right {
   flex: 1;
   min-width: 250px;
   margin: 10px;
@@ -329,7 +510,6 @@ border-radius: 20px;
   color: white;
   font-size: 24px;
   margin-bottom: 15px;
-  
 }
 
 .about-left ul {
@@ -375,6 +555,19 @@ border-radius: 20px;
   margin-top: 10px;
   font-size: 16px;
 }
+
+/* ABOUT US - Responsive Logo Image */
+.about-section .imageofbrand {
+  margin-left: 610px;
+  height: 210px;
+  border-radius: 20px;
+  max-width: 100%; /* Ensure the logo doesn't overflow the container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+
+/* _________________________________________________________________________________________ */
 
  body {
       font-family: Arial, sans-serif;
