@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Signup</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+body {
+  background-color: #111;
+  color: #eee;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+.form-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}
+
+.form-tab {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.active-tab {
+  color: #fff;
+  border-color: #999;
+}
+
+.form-wrapper {
+  display: none;
+}
+
+.form-wrapper.active {
+  display: block;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #222;
+  color: #eee;
+  font-size: 16px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.input-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.half-width {
+  flex: 1 1 45%;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #555;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #777;
+}
+
+.error-msg {
+  color: #ff5555;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .input-row {
+    flex-direction: column;
+  }
+  .half-width {
+    width: 100%;
+  }
+}
+
+  </style>
+</head>
+<body>
+ <div class="form-container">
+  <div class="form-tabs">
+    <button id="loginTab" class="form-tab active-tab">Login</button>
+    <button id="signupTab" class="form-tab">Sign Up</button>
+  </div>
+
+  <!-- Login Form -->
+  <form id="loginForm" class="form-wrapper active" novalidate>
+    <div class="form-group">
+      <input type="text" id="loginUsername" class="input-field" placeholder="Username">
+      <div id="loginUsernameError" class="error-msg"></div>
+    </div>
+    <div class="form-group">
+      <input type="email" id="loginEmail" class="input-field" placeholder="Email">
+      <div id="loginEmailError" class="error-msg"></div>
+    </div>
+    <div class="form-group">
+      <input type="password" id="loginPassword" class="input-field" placeholder="Password">
+      <div id="loginPasswordError" class="error-msg"></div>
+    </div>
+    <button type="submit" class="submit-btn">Login</button>
+  </form>
+
+  <!-- Sign Up Form -->
+  <form id="signupForm" class="form-wrapper" novalidate>
+    <div class="input-row">
+      <div class="form-group half-width">
+        <input type="text" id="signupName" class="input-field" placeholder="Full Name">
+        <div id="signupNameError" class="error-msg"></div>
+      </div>
+      <div class="form-group half-width">
+        <input type="text" id="signupUsername" class="input-field" placeholder="Username">
+        <div id="signupUsernameError" class="error-msg"></div>
+      </div>
+    </div>
+    <div class="input-row">
+      <div class="form-group half-width">
+        <input type="email" id="signupEmail" class="input-field" placeholder="Email">
+        <div id="signupEmailError" class="error-msg"></div>
+      </div>
+      <div class="form-group half-width">
+        <input type="password" id="signupPassword" class="input-field" placeholder="Password">
+        <div id="signupPasswordError" class="error-msg"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="password" id="signupConfirm" class="input-field" placeholder="Confirm Password">
+      <div id="signupConfirmError" class="error-msg"></div>
+    </div>
+    <button type="submit" class="submit-btn">Sign Up</button>
+  </form>
+</div>
+
+  <script>
+  const loginTab = document.getElementById('loginTab');
+  const signupTab = document.getElementById('signupTab');
+  const loginForm = document.getElementById('loginForm');
+  const signupForm = document.getElementById('signupForm');
+
+  loginTab.onclick = () => {
+    loginTab.classList.add('active-tab');
+    signupTab.classList.remove('active-tab');
+    loginForm.classList.add('active');
+    signupForm.classList.remove('active');
+  };
+
+  signupTab.onclick = () => {
+    signupTab.classList.add('active-tab');
+    loginTab.classList.remove('active-tab');
+    signupForm.classList.add('active');
+    loginForm.classList.remove('active');
+  };
+
+  function showError(input, errorId, msg, condition) {
+    const err = document.getElementById(errorId);
+    if (!condition) {
+      err.innerText = '⚠ ' + msg;
+      err.style.display = 'block';
+      return false;
+    } else {
+      err.style.display = 'none';
+      return true;
+    }
+  }
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function validatePassword(pw) {
+    return pw.length >= 6;
+  }
+
+  // Login validation
+  loginUsername.addEventListener("blur", () => {
+    showError(loginUsername, 'loginUsernameError', 'Username is required', loginUsername.value.trim() !== "");
+  });
+  loginEmail.addEventListener("input", () => {
+    showError(loginEmail, 'loginEmailError', 'Enter a valid email', validateEmail(loginEmail.value));
+  });
+  loginPassword.addEventListener("input", () => {
+    showError(loginPassword, 'loginPasswordError', 'At least 6 characters required', validatePassword(loginPassword.value));
+  });
+
+  // Signup validation
+  signupName.addEventListener("blur", () => {
+    showError(signupName, 'signupNameError', 'Full Name is required', signupName.value.trim() !== "");
+  });
+  signupUsername.addEventListener("blur", () => {
+    showError(signupUsername, 'signupUsernameError', 'Username is required', signupUsername.value.trim() !== "");
+  });
+  signupEmail.addEventListener("input", () => {
+    showError(signupEmail, 'signupEmailError', 'Enter a valid email', validateEmail(signupEmail.value));
+  });
+  signupPassword.addEventListener("input", () => {
+    showError(signupPassword, 'signupPasswordError', 'At least 6 characters required', validatePassword(signupPassword.value));
+    checkConfirmPassword();
+  });
+  signupConfirm.addEventListener("input", checkConfirmPassword);
+
+  function checkConfirmPassword() {
+    if (signupConfirm.value !== signupPassword.value) {
+      signupConfirmError.innerText = '⚠ Passwords do not match';
+      signupConfirmError.style.display = "block";
+      return false;
+    } else {
+      signupConfirmError.style.display = "none";
+      return true;
+    }
+  }
+
+  // Submit logic
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid =
+      showError(loginUsername, 'loginUsernameError', 'Username is required', loginUsername.value.trim() !== "") &
+      showError(loginEmail, 'loginEmailError', 'Enter a valid email', validateEmail(loginEmail.value)) &
+      showError(loginPassword, 'loginPasswordError', 'At least 6 characters required', validatePassword(loginPassword.value));
+    if (valid) alert("Login successful (demo)");
+  });
+
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid =
+      showError(signupName, 'signupNameError', 'Full Name is required', signupName.value.trim() !== "") &
+      showError(signupUsername, 'signupUsernameError', 'Username is required', signupUsername.value.trim() !== "") &
+      showError(signupEmail, 'signupEmailError', 'Enter a valid email', validateEmail(signupEmail.value)) &
+      showError(signupPassword, 'signupPasswordError', 'At least 6 characters required', validatePassword(signupPassword.value)) &
+      checkConfirmPassword();
+    if (valid) alert("Signup successful (demo)");
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,713 @@
+
+.sticky-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Add spacing to body so content doesn't hide under sticky bar */
+body {
+  padding-top: 180px; /* adjust as needed for your total navbar height */
+}
+
+/* Top Red Bar */
+
+.top-bar {
+    background-color: grey;
+    color: white;
+    font-size: 12px;
+    padding: 2px 200px;
+
+  }
+
+  .social-icons {
+    color: white;
+    margin-left: 10px;
+    font-size: 18px;
+  }
+
+  /* Middle Navbar */
+
+  .navbar-main {
+    background-color: #1c1c1c;
+    padding: 5px 200px;
+  }
+
+  .brandlogo{
+height: 100px;
+width: 130px;
+border-radius: 20px;
+  }
+
+/* Bottom Navbar */
+
+.navbar-bottom {
+  background-color: #0e0e0e;
+  padding: 10px 0;
+  height: 50px;
+}
+
+.navbar-bottom a {
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 15px;
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  margin-top: -13px;
+}
+  
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hidden dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #222;
+  min-width: 180px;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  max-height: 200px;         /* Limit the dropdown height */
+  overflow-y: auto;          /* Enable vertical scroll */
+  border: 1px solid #444;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.4);
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  display: block;
+  text-transform: none;
+}
+
+/* Hover effect to show dropdown */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Optional: Add hover background */
+.dropdown-content a:hover {
+  background-color: #444;
+}
+
+.dropdown-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 4px;
+}
+
+  /* Center: Search */
+
+  .search-container {
+    width: 500px;
+    background-color: #3a3a3a;
+    border-radius: 30px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+  }
+  .search-container input {
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    outline: none;
+  }
+  .search-container input::placeholder {
+    color: #bbb;
+  }
+  .search-icon {
+    color: white;
+    font-size: 16px;
+  }
+
+  .search-bar::placeholder {
+    color: white;
+  }
+  .icon-btn {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+  }
+  .loginbtn{
+    margin-right: 5px;
+  }
+  .cartbtn{
+    margin-right: 20px;
+  }
+  .cart-icon {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .logo {
+    height: 50px;
+  }
+
+  .divright{
+    font-size: 15px;
+  }
+
+  /* Carousel Container */
+  
+  .carousel-container {
+        width: 100%;               
+        max-width: 1000px;
+        height: 600px;            
+        margin: 30px auto;        
+        overflow: hidden;
+        border-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;   
+           
+      }
+  
+    
+      .carousel-inner,
+      .carousel-item,
+      .carousel-item img {
+        height: 100%;
+      }
+  
+      .carousel-item img {
+        object-fit: cover;
+        width: 100%;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px; 
+      }
+
+          
+/* SHOP BY BRAND*/
+
+      .shopbybrand{
+        text-align: center;
+        font-size: 30px;
+      }
+
+    .shopbybrand{
+      font-size: 10px;
+    }
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.image-item {
+  background-color: #fff;
+  border: 3px solid #ccc;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-item:hover {
+  border-color: #444;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.image-item a {
+  display: block;
+}
+
+.image-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.image-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(90%);
+  cursor: pointer;
+}
+
+.image-item p {
+  margin: 10px 0;
+  font-size: 20px;
+  color: black;
+  padding: 0 10px;
+}
+
+/* SHOP BY CATEGORY */
+
+.circle-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.circle-card {
+  width: 200px;
+  text-align: center;
+  border: 3px solid #ccc;
+  border-radius: 20px;
+  padding: 15px;
+  background-color: white;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  height: 270px;
+}
+
+.circle-card:hover {
+  border-color: #444;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.circle-card a {
+  display: block;
+}
+
+.circle-image {
+  width: 150px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.circle-card:hover .circle-image {
+  transform: scale(1.05);
+  filter: brightness(90%);
+  cursor: pointer;
+}
+
+.circle-title {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #333;
+}
+
+.commitment{
+  font-size: 20px;
+  text-align: center;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.imageofbrand{
+  margin-left: 610px;
+  height: 210px;
+  border-radius: 20px;
+}
+
+/* ABOUT US */
+
+.about-section {
+  background-color: #333;
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.about-left, .about-right {
+  flex: 1;
+  min-width: 250px;
+  margin: 10px;
+}
+
+.about-title {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 15px;
+  
+}
+
+.about-left ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-left li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.about-left a {
+  color: white;
+  text-decoration: none;
+}
+
+.about-left a:hover {
+  text-decoration: underline;
+  color: #ddd;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.social-link img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.social-link:hover {
+  text-decoration: underline;
+}
+
+.contact-number {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+ body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .model-container {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .slider img {
+      height: 200px;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .model-description {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .model-price {
+      font-size: 20px;
+      color: #28a745;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .order-button {
+      background-color: #000;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .order-button:hover {
+      background-color: #444;
+    }
+
+    /* SKMEI WATCHES */
+
+    .model-price {
+      font-size: 20px;
+      color: black;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    /* tissot model 1 */
+
+    .model-container {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .slider img {
+      height: 200px;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .model-description {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .model-price {
+      font-size: 20px;
+      color: #28a745;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .order-button {
+      background-color: #000;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .order-button:hover {
+      background-color: #444;
+    }
+
+
+  /* Tissot model */
+
+  /* Container */
+  .product-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 30px;
+    gap: 30px;
+  }
+  
+  .product-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product-carousel {
+    position: relative;
+    max-width: 100%;
+    height: 400px;
+    text-align: center;
+  }
+  
+  .product-carousel img {
+    max-height: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+  
+  .carousel-buttons {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: -25px;
+  }
+  
+  .carousel-buttons button {
+    background: #ffffffcc;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .carousel-buttons button:hover {
+    background: #333;
+    color: white;
+  }
+  
+  .product-thumbnails {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .product-thumbnails .thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s;
+  }
+  
+  .product-thumbnails .thumbnail:hover {
+    border: 2px solid #007bff;
+  }
+  
+  .product-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .product-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .product-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .product-price {
+    font-size: 24px;
+    color: #e60023;
+    font-weight: bold;
+    margin-bottom: 15px;
+    background: #ffe6e6;
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 10px;
+  }
+  
+  .product-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .btn-primary {
+    background: #007bff;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background: #0056b3;
+  }
+  
+  .btn-secondary {
+    background: #28a745;
+    color: white;
+  }
+  
+  .btn-secondary:hover {
+    background: #1e7e34;
+  }
+  
+  .review-input textarea {
+    width: 100%;
+    height: 100px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .review-input button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .review-input button:hover {
+    background-color: #cc5200;
+  }
+  
+  .product-reviews {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-reviews h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+  
+  #product-review-list p {
+    background: #f1f1f1;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+
+  .thumbnail.active {
+    border: 4px solid #007bff; /* Highlight the active thumbnail */
+  }
+
+  .thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s, transform 0.3s;
+  }
+  
+  .thumbnail:hover {
+    border: 2px solid #007bff; /* Hover effect border color */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }
+  
+  /* ____________________________________________________________________________________________ */
+
+
+  /* LOGIN OR SIGNUP STYLING */
+
+  
